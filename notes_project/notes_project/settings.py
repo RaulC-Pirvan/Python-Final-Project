@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+# Added the "notes" app
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -53,6 +54,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "notes_project.urls"
 
+# Added the dir because django wouldn't see it otherwise
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",

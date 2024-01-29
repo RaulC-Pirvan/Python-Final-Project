@@ -12,3 +12,7 @@ class NoteForm(forms.ModelForm):
 
         # Specifying the fields from the model to be included in the form
         fields = ["text"]
+
+        widgets = {
+            "text": forms.Textarea(attrs={"class": "custom-textarea"}),
+        }

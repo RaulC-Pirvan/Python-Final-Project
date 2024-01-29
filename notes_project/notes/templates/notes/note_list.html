@@ -2,10 +2,20 @@
 
 {% block content %}
   <h1>Notes</h1>
+  <a href="{% url 'add_note' %}" class="button">Add Note</a>
   <ul>
     {% for note in notes %}
-      <li>{{ note.date_added }} - {{ note.text }} [<a href="{% url 'edit_note' pk=note.pk %}">edit</a>] [<a href="{% url 'delete_note' pk=note.pk %}">delete</a>]</li>
+      <li>
+        {{ note.date_added }} - {{ note.text }}
+        <form method="post" action="{% url 'edit_note' pk=note.pk %}" style="display: inline;">
+          {% csrf_token %}
+          <button type="submit" class="button button-edit">Edit</button>
+        </form>
+        <form method="post" action="{% url 'delete_note' pk=note.pk %}" style="display: inline;">
+          {% csrf_token %}
+          <button type="submit" class="button button-delete">Delete</button>
+        </form>
+      </li>
     {% endfor %}
   </ul>
-  <a href="{% url 'add_note' %}">Add Note</a>
 {% endblock %}

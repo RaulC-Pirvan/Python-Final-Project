@@ -1,0 +1,11 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h1>Notes</h1>
+  <ul>
+    {% for note in notes %}
+      <li>{{ note.date_added }} - {{ note.text }} [<a href="{% url 'edit_note' pk=note.pk %}">edit</a>] [<a href="{% url 'delete_note' pk=note.pk %}">delete</a>]</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'add_note' %}">Add Note</a>
+{% endblock %}

@@ -42,12 +42,12 @@ a {
 }
 
 .custom-textarea {
-    background-color: #414141; /* Light grey background color */
-    color: #ffffff; /* Dark text color */
-    border: none; /* Border color */
-    padding: 8px; /* Padding around the text box */
-    width: 100%; /* Full width */
-    box-sizing: border-box; /* Include padding and border in the box's total width and height */
-    resize: vertical; /* Allow vertical resizing */
-    min-height: 100px; /* Set a minimum height */
+    background-color: #414141; 
+    color: #ffffff; 
+    border: none; 
+    padding: 8px; 
+    width: 100%; 
+    box-sizing: border-box; 
+    resize: vertical; 
+    min-height: 100px; 
 }

@@ -1,11 +1,21 @@
-{% extends 'base_generic.html' %}
+{% extends 'base_generic.html' %} 
 
-{% block content %}
+<!-- Defining a block named "content" to override in the base template -->
+{% block content %}  
   <h1>Add Note</h1>
+
+  <!-- Form for adding a new note with the 'post' method -->
   <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
+    <!-- Including the CSRF token for security -->
+    {% csrf_token %}  
+    <!-- Rendering the form fields as paragraphs -->
+    {{ form.as_p }}  
+    
+    <!-- Save button to submit the form -->
     <button type="submit" class="button">Save</button>
+
+    <!-- Cancel button linking to the 'note_list' URL -->
     <a href="{% url 'note_list' %}" class="button">Cancel</a>
   </form>
+
 {% endblock %}

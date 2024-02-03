@@ -1,21 +1,34 @@
 {% extends 'base_generic.html' %}
 
-{% block content %}
-  <h1>Notes</h1>
-  <a href="{% url 'add_note' %}" class="button">Add Note</a>
+<!-- Defining a block named "content" to override in the base template -->
+{% block content %}  
+  <h1>Notes</h1>  
+  <!-- Displaying a button to add a new note, linking to the 'add_note' URL -->
+  <a href="{% url 'add_note' %}" class="button">Add Note</a>  
+
   <ul>
     {% for note in notes %}
       <li>
-        {{ note.date_added }} - {{ note.text }}
+        <!-- Displaying the date and text of each note -->
+        {{ note.date_added }} - {{ note.text }}  
+
+        <!-- Form for editing a note, using the 'edit_note' URL with the note's primary key -->
         <form method="post" action="{% url 'edit_note' pk=note.pk %}" style="display: inline;">
-          {% csrf_token %}
-          <button type="submit" class="button button-edit">Edit</button>
+          <!-- Including the CSRF token for security -->
+          {% csrf_token %}  
+          <!-- Displaying an "Edit" button for the note -->
+          <button type="submit" class="button button-edit">Edit</button>  
         </form>
+
+        <!-- Form for deleting a note, using the 'delete_note' URL with the note's primary key -->
         <form method="post" action="{% url 'delete_note' pk=note.pk %}" style="display: inline;">
-          {% csrf_token %}
-          <button type="submit" class="button button-delete">Delete</button>
+          <!-- Include the CSRF token for security -->
+          {% csrf_token %}  
+          <!-- Displaying a "Delete" button for the note -->
+          <button type="submit" class="button button-delete">Delete</button>  
         </form>
       </li>
     {% endfor %}
   </ul>
+
 {% endblock %}

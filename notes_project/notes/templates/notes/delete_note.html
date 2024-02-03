@@ -1,11 +1,20 @@
-{% extends 'base_generic.html' %}
+{% extends 'base_generic.html' %}  
 
-{% block content %}
-  <h1>Delete Note</h1>
-  <p>Are you sure you want to delete "{{ note.text }}"?</p>
+<!-- Defining a block named "content" to override in the base template -->
+{% block content %}  
+  <h1>Delete Note</h1> 
+
+  <!-- Displaying a confirmation message with the note's text -->
+  <p>Are you sure you want to delete "{{ note.text }}"?</p>  
+
+  <!-- Form for deleting a note with the 'post' method -->
   <form method="post">
-    {% csrf_token %}
-    <button type="submit">Yes, delete</button>
+    <!-- Including the CSRF token for security -->
+    {% csrf_token %}  
+    <!-- Button to confirm the deletion of the note -->
+    <button type="submit">Yes, delete</button> 
   </form>
+
+  <!-- Cancel link linking to the 'note_list' URL -->
   <a href="{% url 'note_list' %}">Cancel</a>
-{% endblock %}
+{% endblock %} 

@@ -13,5 +13,5 @@ urlpatterns = [
     # URL pattern for including the URLs from the 'notes' app
     path("notes/", include("notes.urls")),
     # URL pattern for redirecting to the 'notes' app (added line)
-    path("", RedirectView.as_view(url="/notes/")),  # Adaugă această linie
+    path("", RedirectView.as_view(url="/notes/")),
 ]

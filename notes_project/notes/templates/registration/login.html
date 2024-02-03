@@ -2,8 +2,11 @@
 
 {% block content %}
   <h2>Login</h2>
+  <!-- Creating a form with the 'post' method, submitting to the 'login' URL -->
   <form method="post" action="{% url 'login' %}">
+    <!-- Including the CSRF token for security -->
     {% csrf_token %}
+    <!-- Rendering the form fields as paragraphs -->
     {{ form.as_p }}
     <button type="submit">Login</button>
   </form>
